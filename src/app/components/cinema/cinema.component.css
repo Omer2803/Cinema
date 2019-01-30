@@ -1,0 +1,39 @@
+.intro-header {
+  background: url("https://eastonialeopards.com/wp-content/uploads/2017/04/movie-article.jpg");
+  background-repeat: repeat;
+  background-attachment: fixed;  
+  }
+ 
+  .view {
+   height: 100vh !important;
+  }
+  .btn .fa {
+    margin-left: 3px;
+  }
+
+  @media (max-width: 768px) {
+    
+  }
+  h6 {
+    line-height: 1.7;
+  }
+ 
+  @media (max-width: 450px) {
+    .margins {
+      margin-right: 1rem;
+      margin-left: 1rem;
+    }
+  }
+  @media (max-width: 740px) {
+    .full-height,
+    .full-height body,
+    .full-height header,
+    .full-height header .view {
+      height: 1020px;
+    }
+  }
+
+  .col-centered{
+    float: none;
+    margin: 0 auto;
+}

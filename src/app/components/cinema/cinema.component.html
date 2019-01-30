@@ -1,0 +1,26 @@
+<ng-template #errorModal let-modal>
+    <div class="modal-body">
+        <diV>
+            The title is exist, please select another title
+        </diV>
+        <button (click)="modal.dismiss('Cross click')" aria-label="Close">
+            OK
+        </button>
+    </div>
+</ng-template>
+
+
+<header class="intro-header">
+    <section>
+        <div class="col-md-2 col-centered">
+            <a class="navbar-brand" href="#"><strong>Cinema</strong></a>
+            <app-movie-form (onSaved)="addNewMovie($event)"></app-movie-form>
+        </div>
+        <div class="container flex-center">
+            <h1 class="h1-responsive wow fadeInLeft" data-wow-delay="0.3s"> </h1>
+            <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
+            <br>
+            <app-movie-list [movies]="movies"></app-movie-list>
+        </div>
+    </section>
+</header>

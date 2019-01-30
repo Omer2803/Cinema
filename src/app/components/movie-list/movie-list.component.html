@@ -1,0 +1,16 @@
+<div *ngFor="let movie of movies">
+<app-movie [movie]=movie (onRemove)="removeMovie($event)" (onSave)="saveMovieDetails($event)"></app-movie>
+</div>
+
+<ng-template #errorModal let-modal>
+    <div class="modal-body">
+        <diV>
+            The title is exist, please select another title
+        </diV>
+        <button (click)="modal.dismiss('Cross click')" aria-label="Close">
+            OK
+        </button>
+    </div>
+</ng-template>
+
+

@@ -1,0 +1,57 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">{{ movie.imdbID ? 'Edit movie' : 'Add new movie' }}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="saveForm" (ngSubmit)="onSubmit(movie)">
+
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" formControlName="Title" value="{{movie.Title}}" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Title.errors }" />
+                <div *ngIf="submitted && f.Title.errors" class="invalid-feedback">
+                    <div *ngIf="f.Title.errors.required">Title is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Year</label>
+                <input type="date" formControlName="Year" value="{{movie.Year | date:'yyyy-MM-dd'}}" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.Year.errors }" />
+                <div *ngIf="submitted && f.Year.errors" class="invalid-feedback">
+                    <div *ngIf="f.Year.errors.required">Date is required</div>
+                </div>
+                <div *ngIf="submitted && f.Year.errors" class="invalid-feedback">
+                        <div *ngIf="f.Year.errors.validateDate">Date isn't valid</div>
+                    </div>
+            </div>
+            <div class="form-group">
+                <label>Runtime</label>
+                <input type="text" formControlName="Runtime" value="{{movie.Runtime}}" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Runtime.errors }" />
+                <div *ngIf="submitted && f.Runtime.errors" class="invalid-feedback">
+                    <div *ngIf="f.Runtime.errors.required">Runtime is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Genre</label>
+                <input type="text" formControlName="Genre" class="form-control" value="{{movie.Genre}}" [ngClass]="{ 'is-invalid': submitted && f.Genre.errors }" />
+                <div *ngIf="submitted && f.Genre.errors" class="invalid-feedback">
+                    <div *ngIf="f.Genre.errors.required">Genre is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Director</label>
+                <input type="text" formControlName="Director" class="form-control" value="{{movie.Director}}" [ngClass]="{ 'is-invalid': submitted && f.Director.errors }" />
+                <div *ngIf="submitted && f.Director.errors" class="invalid-feedback">
+                    <div *ngIf="f.Director.errors.required">Director is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary">{{movie.imdbID ? 'Save'
+                    : 'Add'}} </button>
+            </div>
+        </form>
+    </div>
+</ng-template>
+<button class="btn btn-outline-primary mb-2 mr-2" (click)="openModal(content)">{{ movie.imdbID ? 'Edit' : 'Add' }}</button>

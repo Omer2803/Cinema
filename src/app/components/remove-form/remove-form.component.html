@@ -1,0 +1,17 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Remove movie</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+      <div>Are you sure you want to delete this movie?</div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light"  (click)="remove(movie.imdbID);modal.close()">OK</button>
+        <button type="button" class="btn btn-light"  (click)="modal.close()">Cancel</button>
+    </div>
+</ng-template>
+<button class="btn btn-outline-primary mb-2 mr-2" (click)="openModal(content)">Remove</button>

@@ -1,0 +1,26 @@
+<div class="container" *ngIf="movie.imdbID">
+    <div class="row">
+        <div class="col-md-6 col-centered">
+            <div class="list-group">
+                <div class="list-group-item clearfix" >
+                    <div class="profile-teaser-left">
+                    </div>
+                    <div class="profile-teaser-main" >
+                        <h2 class="profile-name">{{movie.Title | titlecase}}</h2>
+                        <div class="profile-info">
+                            <div class="info"><span class="">ID:</span> {{movie.imdbID}} </div>
+                            <div class="info"><span class="">Year:</span> {{movie.Year | date:'yyyy'}}</div>
+                            <div class="info"><span class="">Genre:</span> {{movie.Genre}}</div>
+                            <div class="info"><span class="">Director:</span> {{movie.Director}}</div>
+                            <div class="info"><span class="">Runtime:</span> {{movie.Runtime}}</div>
+                        </div>
+                        <app-movie-form [movie]="movie" (onSaved)="onSaved($event)"></app-movie-form>
+                        <app-remove-form [movie]="movie" (onRemoved)="onRemoved($event)"></app-remove-form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<hr>
